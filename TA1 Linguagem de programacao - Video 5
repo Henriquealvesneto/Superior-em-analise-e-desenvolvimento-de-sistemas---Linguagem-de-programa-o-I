@@ -1,0 +1,64 @@
+from sys import argv
+
+
+def imprimir_mensagem(disciplina, curso):
+
+    print(f"Minha primeira função em Python desenvolvida na disciplina {disciplina} do curso {curso}.")
+
+imprimir_mensagem("Python", "ADS")
+
+def somar(a,b):
+    return a + b
+
+r = somar(2, 3)
+print(r)
+
+def calcular_desconto(valor, desconto=0):
+    # O parametro desconto possui zero valor default
+    valor_com_desconto = valor - (valor * desconto)
+    return valor_com_desconto
+
+valor1 = calcular_desconto(100) # Não aplica nenhum desconto
+valor2 = calcular_desconto(100, 0.25) # Aplica desconto de 25%
+
+print(f"\nPrimeiro valor a ser pago = {valor1}")
+print(f"\nSegundo valor a ser pago = {valor2}")
+
+def converter_maiuscula(texto, flag_maiuscula):
+    if flag_maiuscula:
+        return texto.upper()
+    else:
+        return texto.lower()
+    
+texto = converter_maiuscula(flag_maiuscula=True, texto="João") # Passagem nominal de paramentros
+print(texto)
+
+def converter_minuscula(texto, flag_maiuscula=True):
+    if flag_maiuscula:
+        return texto.lower()
+    else:
+        return texto.upper()
+    
+texto1 = converter_minuscula(flag_maiuscula=True, texto="LINGUAGEM de Programação")
+texto2 = converter_minuscula(texto="LINGUAGEM de Programação")
+
+print(f"\nTexto 1 = {texto1}")
+print(f"\nTexto 2 = {texto2}")
+
+def imprimir_parametros(*args):
+    qtde_parametros = len(args)
+    print(f"Quantidade de paramentros = {qtde_parametros}")
+
+for i, valor in enumerate(argv):
+    print(f"Posição = {i}, valor = {valor}")
+
+print(f"\nChamada 1")
+imprimir_parametros("São Paulo", 10, 23, 78, "João")
+print(f"\nChamada 2")
+imprimir_parametros(10, "São Paulo")
+
+somar = lambda x, y: x + y
+print(somar(x=5, y=3))
+
+
+
