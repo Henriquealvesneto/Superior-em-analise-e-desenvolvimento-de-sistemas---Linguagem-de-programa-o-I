@@ -59,6 +59,3 @@ imprimir_parametros(10, "São Paulo")
 
 somar = lambda x, y: x + y
 print(somar(x=5, y=3))
-
-
-
