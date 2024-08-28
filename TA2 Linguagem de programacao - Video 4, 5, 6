@@ -104,3 +104,4 @@ def executar_particao(lista, inicio, fim):
 
 lista = [10, 9, 5, 8, 11, -1, 3]
 print(f"\n", executar_quicksort(lista, inicio=0, fim=len(lista)-1))
+
