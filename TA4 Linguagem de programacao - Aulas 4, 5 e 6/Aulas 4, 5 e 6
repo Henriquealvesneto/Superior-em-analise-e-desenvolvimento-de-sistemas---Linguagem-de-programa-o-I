@@ -1,0 +1,41 @@
+import pandas as pd
+
+pd.Series(data=5)
+
+lista_nomes = "Howard Ian Petter Jonah Kellie".split()
+
+pd.Series(lista_nomes) # Cria uma Series com o valor a lista_nomes = "Howard Ian Petter Jonah Kellie"
+
+dados = {
+'nome1': 'Howard',
+'nome2': 'Ian',
+'nome3': 'Petter',
+'nome4': 'Jonah',
+'nome5': 'Kellie',
+}
+
+pd.Series(dados) # Cria uma Series com um dicionario
+
+series_dados = pd.Series([10.2, -1, None, 15, 23.4])
+print(f'Quantidade de linhas = ', series_dados.shape) # Retorna uma tupla com o número de linhas
+print(f'Tipo de dados', series_dados.dtypes) # Retorna o tipo de dados, se for misto será um object
+print(f'Os valores são únicos ?', series_dados.is_unique) # Verifica se os valores são únicos (sem duplicações)
+print(f'Existem valores nulos ?', series_dados.hasnans) # Verifica se existem valores nulos
+print(f'Quantos valores existem ?', series_dados.count()) # Conta quantos valores exisetem (exclui os nulos)
+
+print(f'Qual o menor valor? ', series_dados.min()) # Extrai o menor valor da Series(Nesse caso os dados precisam ser do mesmo tipo)
+print(f'Qual o maior valor?', series_dados.max()) # Extrai o valor máximo, com a mesma condição do mínimo
+print(f'Qual a média aritimética?', series_dados.mean()) # Extrai a média aritmética de uma Series numérica
+print(f'Qual o desvio padrão?', series_dados.std())# Extrai uo desvio padrão de uma Series numerica
+print(f'Qual a mediana?', series_dados.median()) # Extrai a mediana de uma Series numerica
+print(f'\nResumo>\n', series_dados.describe()) # Exibe um resume sobre os dados da Series
+
+dataFrame = pd.DataFrame(lista_nomes, columns=['Nome'])
+print(dataFrame)
+
+url = 'https://en.wikipedia.org/wiki/Minnesota'
+
+dfs = pd.read_html(url)
+print(type(dfs))
+print(len(dfs))
+
