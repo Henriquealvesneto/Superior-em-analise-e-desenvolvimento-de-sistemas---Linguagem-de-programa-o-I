@@ -1,4 +1,6 @@
 import pandas as pd
+from datetime import date
+from datetime import datetime as dt 
 
 pd.Series(data=5)
 
@@ -33,9 +35,37 @@ print(f'\nResumo>\n', series_dados.describe()) # Exibe um resume sobre os dados 
 dataFrame = pd.DataFrame(lista_nomes, columns=['Nome'])
 print(dataFrame)
 
-url = 'https://en.wikipedia.org/wiki/Minnesota'
+#url = 'https://en.wikipedia.org/wiki/Minnesota'
 
-dfs = pd.read_html(url)
-print(type(dfs))
-print(len(dfs))
+#dfs = pd.read_html(url)
+#print(type(dfs))
+#print(len(dfs))
+
+dfs = pd.DataFrame(lista_nomes, columns=['nome'])
+dfs['idade'] = 30
+
+print(dfs)
+
+data_extracao = dt.now()
+dfs['data_estracao'] = data_extracao
+dfs['data_estracao'] = dfs['data_estracao'].astype('datetime64[ns]')
+dfs=dfs._append({'nome' : 'TESTE' , 'data_extracao' : dt(2024, 9, 6)} , ignore_index=True)
+
+dfs.sort_values(by='data_extracao', ascending=False, inplace=True)
+
+print(dfs.info())
+print(dfs.head())
+
+dfs=dfs._append({'nome' : 'TESTE2' , 'idade' : 25} , ignore_index=True)
+
+print(f'\n', dfs.loc[(dfs['idade'] < 30)])
+
+import matplotlib.pyplot as plt
+import random
+
+dados1 = random.sample(range(100), k=20)
+dados2 = random.sample(range(100), k=20)
+
+plt.plot(dados1, dados2) # pyplot gerencia a figura e o eixo
+plt.show()
 
